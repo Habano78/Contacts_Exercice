@@ -65,12 +65,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2FF9D9172ACB3C0B00F3A6C5 /* Sources */ = {
+		22502B092DB4CD2300FB198B /* App */ = {
 			isa = PBXGroup;
 			children = (
 				2FFB64272AC6D255007F2F80 /* UserListApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		22502B0A2DB4CD3500FB198B /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				2FFB64292AC6D255007F2F80 /* UserListView.swift */,
 				2F804AE12ACC976300A46A03 /* UserDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2FF9D9172ACB3C0B00F3A6C5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
 				2FEF0C702ACB45E3004DB87C /* User.swift */,
 				2FEF0C6E2ACB416C004DB87C /* UserListResponse.swift */,
 				2FF9D91E2ACB3DD400F3A6C5 /* UserListRepository.swift */,
@@ -99,6 +113,8 @@
 		2FFB641B2AC6D255007F2F80 = {
 			isa = PBXGroup;
 			children = (
+				22502B0A2DB4CD3500FB198B /* Views */,
+				22502B092DB4CD2300FB198B /* App */,
 				2F6F65322ACD69290011B439 /* Readme.md */,
 				2FFB64262AC6D255007F2F80 /* UserList */,
 				2FFB64372AC6D256007F2F80 /* UserListTests */,
