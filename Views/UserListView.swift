@@ -1,18 +1,13 @@
 import SwiftUI
 
 struct UserListView: View {
-    // TODO: - Those properties should be viewModel's OutPuts
-    @State private var users: [User] = []
-    @State private var isLoading = false
-    @State private var isGridView = false
 
-    // TODO: - The property should be declared in the viewModel
-    private let repository = UserListRepository()
+        @ObservedObject var viewModel:  UserListViewModel
     
     var body: some View {
         NavigationView {
-            if !isGridView {
-                List(users) { user in
+                if !viewModel.isGridView { //CHANGEMENT 
+                        List(viewModel.users) { user in
                     NavigationLink(destination: UserDetailView(user: user)) {
                         HStack {
                             AsyncImage(url: URL(string: user.picture.thumbnail)) { image in
@@ -44,7 +39,7 @@ struct UserListView: View {
                 .navigationTitle("Users")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Picker(selection: $isGridView, label: Text("Display")) {
+                            Picker(selection: viewModel.$isGridView, label: Text("Display")) {
                             Image(systemName: "rectangle.grid.1x2.fill")
                                 .tag(true)
                                 .accessibilityLabel(Text("Grid view"))
@@ -66,7 +61,7 @@ struct UserListView: View {
             } else {
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
-                        ForEach(users) { user in
+                            ForEach(viewModel.users) { user in
                             NavigationLink(destination: UserDetailView(user: user)) {
                                 VStack {
                                     AsyncImage(url: URL(string: user.picture.medium)) { image in
