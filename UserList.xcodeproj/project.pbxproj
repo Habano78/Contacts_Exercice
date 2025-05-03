@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		22502B0E2DB5089300FB198B /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22502B0D2DB5089300FB198B /* UserListViewModel.swift */; };
+		225137C22DC6803100E96943 /* UserRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225137C12DC6803100E96943 /* UserRowView.swift */; };
+		225137C42DC6808900E96943 /* UserGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225137C32DC6808900E96943 /* UserGridView.swift */; };
+		22D780DA2DC67C6800AD07C9 /* Untitled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D780D92DC67C6300AD07C9 /* Untitled.swift */; };
 		2F015BA82ACC938F009A098C /* UserListRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F015BA72ACC938F009A098C /* UserListRepositoryTests.swift */; };
 		2F6F65332ACD69290011B439 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F65322ACD69290011B439 /* Readme.md */; };
 		2F804AE22ACC976300A46A03 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F804AE12ACC976300A46A03 /* UserDetailView.swift */; };
@@ -33,6 +36,9 @@
 
 /* Begin PBXFileReference section */
 		22502B0D2DB5089300FB198B /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		225137C12DC6803100E96943 /* UserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRowView.swift; sourceTree = "<group>"; };
+		225137C32DC6808900E96943 /* UserGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGridView.swift; sourceTree = "<group>"; };
+		22D780D92DC67C6300AD07C9 /* Untitled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled.swift; sourceTree = "<group>"; };
 		2F015BA72ACC938F009A098C /* UserListRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRepositoryTests.swift; sourceTree = "<group>"; };
 		2F6F65322ACD69290011B439 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		2F804AE12ACC976300A46A03 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
@@ -80,6 +86,8 @@
 			children = (
 				2FFB64292AC6D255007F2F80 /* UserListView.swift */,
 				2F804AE12ACC976300A46A03 /* UserDetailView.swift */,
+				225137C12DC6803100E96943 /* UserRowView.swift */,
+				225137C32DC6808900E96943 /* UserGridView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -130,6 +138,7 @@
 		2FFB641B2AC6D255007F2F80 = {
 			isa = PBXGroup;
 			children = (
+				22D780D92DC67C6300AD07C9 /* Untitled.swift */,
 				22502B0C2DB503CC00FB198B /* ViewModel */,
 				22502B0B2DB4FF1800FB198B /* Model */,
 				22502B0A2DB4CD3500FB198B /* Views */,
@@ -273,8 +282,11 @@
 				2FFB642A2AC6D255007F2F80 /* UserListView.swift in Sources */,
 				2FEF0C6F2ACB416C004DB87C /* UserListResponse.swift in Sources */,
 				22502B0E2DB5089300FB198B /* UserListViewModel.swift in Sources */,
+				225137C42DC6808900E96943 /* UserGridView.swift in Sources */,
 				2F804AE22ACC976300A46A03 /* UserDetailView.swift in Sources */,
+				22D780DA2DC67C6800AD07C9 /* Untitled.swift in Sources */,
 				2FF9D91F2ACB3DD400F3A6C5 /* UserListRepository.swift in Sources */,
+				225137C22DC6803100E96943 /* UserRowView.swift in Sources */,
 				2FFB64282AC6D255007F2F80 /* UserListApp.swift in Sources */,
 				2FEF0C712ACB45E3004DB87C /* User.swift in Sources */,
 			);
