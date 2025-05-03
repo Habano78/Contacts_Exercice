@@ -92,7 +92,7 @@ struct UserListView: View {
                 .navigationTitle("Users")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Picker(selection: $isGridView, label: Text("Display")) {
+                            Picker(selection: viewModel.$isGridView, label: Text("Display")) {
                             Image(systemName: "rectangle.grid.1x2.fill")
                                 .tag(true)
                                 .accessibilityLabel(Text("Grid view"))
@@ -120,7 +120,7 @@ struct UserListView: View {
 
     // TODO: - Should be a viewModel's input
     private func fetchUsers() {
-        isLoading = true
+            viewModel.isLoading = true
         Task {
             do {
                 let users = try await repository.fetchUsers(quantity: 20)

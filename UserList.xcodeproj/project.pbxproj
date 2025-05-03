@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		22502B0E2DB5089300FB198B /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22502B0D2DB5089300FB198B /* UserListViewModel.swift */; };
-		22502B102DB9B79500FB198B /* ShareModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22502B0F2DB9B79500FB198B /* ShareModels.swift */; };
 		2F015BA82ACC938F009A098C /* UserListRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F015BA72ACC938F009A098C /* UserListRepositoryTests.swift */; };
 		2F6F65332ACD69290011B439 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F65322ACD69290011B439 /* Readme.md */; };
 		2F804AE22ACC976300A46A03 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F804AE12ACC976300A46A03 /* UserDetailView.swift */; };
@@ -34,7 +33,6 @@
 
 /* Begin PBXFileReference section */
 		22502B0D2DB5089300FB198B /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
-		22502B0F2DB9B79500FB198B /* ShareModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareModels.swift; sourceTree = "<group>"; };
 		2F015BA72ACC938F009A098C /* UserListRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRepositoryTests.swift; sourceTree = "<group>"; };
 		2F6F65322ACD69290011B439 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		2F804AE12ACC976300A46A03 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 		22502B0B2DB4FF1800FB198B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				22502B0F2DB9B79500FB198B /* ShareModels.swift */,
 				2FEF0C702ACB45E3004DB87C /* User.swift */,
 				2FEF0C6E2ACB416C004DB87C /* UserListResponse.swift */,
 			);
@@ -276,7 +273,6 @@
 				2FFB642A2AC6D255007F2F80 /* UserListView.swift in Sources */,
 				2FEF0C6F2ACB416C004DB87C /* UserListResponse.swift in Sources */,
 				22502B0E2DB5089300FB198B /* UserListViewModel.swift in Sources */,
-				22502B102DB9B79500FB198B /* ShareModels.swift in Sources */,
 				2F804AE22ACC976300A46A03 /* UserDetailView.swift in Sources */,
 				2FF9D91F2ACB3DD400F3A6C5 /* UserListRepository.swift in Sources */,
 				2FFB64282AC6D255007F2F80 /* UserListApp.swift in Sources */,
