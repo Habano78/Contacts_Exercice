@@ -56,9 +56,8 @@ final class UserListViewModel: ObservableObject {
     // --- Logique Privée ---
 
     /// Fonction principale pour récupérer (plus) d'utilisateurs.
-    /// Encapsule la logique de l'ancienne fonction `fetchUsers` de la vue (TODO #3).
     private func fetchMoreUsers() {
-        // Empêche les appels multiples si déjà en cours
+        // Empêche de lancer un nouveau chargement si un autre est déjà en cours. L'original n'avait pas cette protection explicite au début de la fonction.
         guard !isLoading else { return }
 
         isLoading = true
@@ -75,7 +74,7 @@ final class UserListViewModel: ObservableObject {
                 // Conformément à la demande de ne PAS ajouter la gestion d'erreur visible pour l'instant,
                 // on se contente d'imprimer l'erreur et de remettre isLoading à false.
                 print("Error fetching users: \(error.localizedDescription)")
-                self.isLoading = false // Important de le faire même en cas d'erreur
+                self.isLoading = false // Garantit que l'application revient à un état "prêt à charger" même si une tentative de chargement échoue.
             }
         }
     }
