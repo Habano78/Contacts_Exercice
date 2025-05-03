@@ -53,7 +53,7 @@ struct UserListView: View {
         List {
             ForEach(viewModel.users) { user in
                 NavigationLink(destination: UserDetailView(user: user)) {
-                    UserRow(user: user) // Utilise la vue UserRow externe
+                    UserRowView(user: user) // Utilise la vue UserRow externe
                 }
                 .onAppear {
                     viewModel.loadMoreContentIfNeeded(currentItem: user)
@@ -69,7 +69,7 @@ struct UserListView: View {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                 ForEach(viewModel.users) { user in
                     NavigationLink(destination: UserDetailView(user: user)) {
-                        UserGridItem(user: user) // Utilise la vue UserGridItem externe
+                        UserGridView(user: user) // Utilise la vue UserGridItem externe
                     }
                     .onAppear {
                         viewModel.loadMoreContentIfNeeded(currentItem: user)

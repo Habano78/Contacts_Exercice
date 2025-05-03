@@ -8,7 +8,7 @@
 import SwiftUI
 
 // UserRow représente une seule ligne dans la liste des utilisateurs.
-struct UserRow: View {
+struct UserRowView: View {
     let user: User // Reçoit l'utilisateur à afficher
 
     var body: some View {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 // UserGrid représente un seul item dans la grille des utilisateurs.
-struct UserGridItem: View {
+struct UserGridView: View {
     let user: User // Reçoit l'utilisateur à afficher
 
      var body: some View {
