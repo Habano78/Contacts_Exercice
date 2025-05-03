@@ -37,24 +37,3 @@ struct UserGridItem: View {
         .padding(.bottom) // Espace sous l'item dans la grille
     }
 }
-
-// --- Preview (Optionnel mais utile pour UserGridItem) ---
-struct UserGridItem_Previews: PreviewProvider {
-    static var previews: some View {
-        // Crée un utilisateur factice pour la prévisualisation
-         let previewUser = User(
-            user: UserListResponse.User(
-                name: .init(title: "Mr", first: "Peter", last: "Jones"),
-                dob: .init(date: "1992-03-10T08:00:00.000Z", age: 31),
-                picture: .init(
-                    large: "https://randomuser.me/api/portraits/men/30.jpg",
-                    medium: "https://randomuser.me/api/portraits/med/men/30.jpg",
-                    thumbnail: "https://randomuser.me/api/portraits/thumb/men/30.jpg"
-                )
-            )
-        )
-        UserGridItem(user: previewUser)
-            .padding()
-            .previewLayout(.sizeThatFits)
-    }
-}

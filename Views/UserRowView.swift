@@ -39,24 +39,3 @@ struct UserRow: View {
         }
     }
 }
-
-// --- Preview (Optionnel mais utile pour UserRow) ---
-struct UserRow_Previews: PreviewProvider {
-    static var previews: some View {
-        // Crée un utilisateur factice pour la prévisualisation
-         let previewUser = User(
-            user: UserListResponse.User(
-                name: .init(title: "Ms", first: "Jane", last: "Smith"),
-                dob: .init(date: "1985-11-20T14:00:00.000Z", age: 38),
-                picture: .init(
-                    large: "https://randomuser.me/api/portraits/women/75.jpg",
-                    medium: "https://randomuser.me/api/portraits/med/women/75.jpg",
-                    thumbnail: "https://randomuser.me/api/portraits/thumb/women/75.jpg"
-                )
-            )
-        )
-        UserRow(user: previewUser)
-            .padding() // Ajoute du padding pour mieux voir dans le canvas de preview
-            .previewLayout(.sizeThatFits) // Ajuste la taille de la preview au contenu
-    }
-}
