@@ -4,7 +4,7 @@ struct UserListView: View {
     // Crée et conserve l'instance du ViewModel.
     @StateObject private var viewModel = UserListViewModel()
 
-    // L'état pour le sélecteur List/Grid reste dans la Vue.
+    /// L'état pour le sélecteur List/Grid reste dans la Vue.
     @State private var isGridView = false
 
     var body: some View {
@@ -19,7 +19,7 @@ struct UserListView: View {
             }
             .navigationTitle("Users")
             .toolbar {
-                // ToolbarItem pour le sélecteur List/Grid
+                // Sélecteur List/Grid
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Picker("Display", selection: $isGridView) {
                         Image(systemName: "list.bullet").tag(false)
@@ -29,7 +29,7 @@ struct UserListView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 }
-                // ToolbarItem pour le bouton de rechargement
+                // Bouton de rechargement
                 ToolbarItem(placement: .navigationBarTrailing) {
                     // Appelle la méthode reloadUsers du ViewModel
                     Button(action: viewModel.reloadUsers) {
@@ -63,7 +63,7 @@ struct UserListView: View {
     }
 
     // Vue extraite pour l'affichage en grille
-    // Elle utilise maintenant UserGridItem défini dans un autre fichier
+    // Elle utilise maintenant UserGrid défini dans un autre fichier
     private var gridView: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {

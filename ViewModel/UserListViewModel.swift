@@ -5,56 +5,48 @@
 //
 
 import Foundation
-// import Combine // Techniquement pas nécessaire si SwiftUI est importé ailleurs, mais bonne pratique
 
-@MainActor // Assure que les mises à jour des @Published se font sur le thread principal
+@MainActor // Assure que les mises à jour des @Published se font sur le fil principal
 final class UserListViewModel: ObservableObject {
 
-    // --- Outputs (pour la Vue - Identifiés par le TODO #1) ---
+    // --- Outputs---
     @Published var users: [User] = []
     @Published var isLoading: Bool = false
 
-    // --- Dépendances (Identifiée par le TODO #2) ---
-    // Le repository est maintenant détenu par le ViewModel
+    // Le repository est maintenant atteignable par le ViewModel
     private let repository: UserListRepository
 
-    // --- Initialiseur ---
-    // Permet l'injection de dépendance mais fournit une valeur par défaut
-    // pour correspondre au comportement initial où la vue créait le repo.
+    // Injection de dépendance et valeur par défaut
     init(repository: UserListRepository = UserListRepository()) {
         self.repository = repository
     }
 
-    // --- Inputs (depuis la Vue - Méthodes basées sur les TODOs #3 et #4) ---
+    // --- Inputs ---
 
     /// Charge la première série d'utilisateurs si la liste est vide.
     /// À appeler depuis .onAppear de la vue.
     func fetchInitialUsersIfNeeded() {
         // Ne charge que si la liste est vide pour éviter les rechargements multiples
-        // lors des réapparitions de la vue. Pour un rechargement forcé, utiliser reloadUsers.
+        // lors des réapparitions de la vue.
         guard users.isEmpty else { return }
         fetchMoreUsers()
     }
 
     /// Recharge complètement la liste des utilisateurs.
-    /// Logique déplacée depuis la fonction `reloadUsers` de la vue (TODO #3).
     func reloadUsers() {
-        // Si une opération est déjà en cours, on pourrait vouloir l'annuler
-        // (nécessiterait de gérer l'objet Task)
-        guard !isLoading else { return } // Évite les rechargements multiples si déjà en cours
+            // Évite les rechargements multiples si déjà en cours
+        guard !isLoading else { return }
 
         users.removeAll() // Vide la liste
         fetchMoreUsers()  // Lance le chargement de la première page
     }
 
     /// Vérifie si l'élément actuel est le dernier et lance le chargement si nécessaire.
-    /// Intègre la logique de `shouldLoadMoreData` (TODO #4) et lance le fetch (TODO #3).
     func loadMoreContentIfNeeded(currentItem item: User?) {
         // S'assure qu'on a un item et que la liste n'est pas vide
         guard let item = item, let lastItem = users.last else {
             return
         }
-
         // Vérifie si l'item est le dernier ET qu'on n'est pas déjà en train de charger
         if item.id == lastItem.id && !isLoading {
             fetchMoreUsers()
