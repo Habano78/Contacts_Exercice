@@ -10,6 +10,7 @@ import Foundation
 final class UserListViewModel: ObservableObject {
 
     // --- Outputs---
+        /// Déclaration et initialisation
     @Published var users: [User] = []
     @Published var isLoading: Bool = false
 
@@ -22,7 +23,6 @@ final class UserListViewModel: ObservableObject {
     }
 
     // --- Inputs ---
-
     /// Charge la première série d'utilisateurs si la liste est vide.
     /// À appeler depuis .onAppear de la vue.
     func fetchInitialUsersIfNeeded() {
@@ -54,7 +54,6 @@ final class UserListViewModel: ObservableObject {
     }
 
     // --- Logique Privée ---
-
     /// Fonction principale pour récupérer (plus) d'utilisateurs.
     private func fetchMoreUsers() {
         // Empêche de lancer un nouveau chargement si un autre est déjà en cours. L'original n'avait pas cette protection explicite au début de la fonction.

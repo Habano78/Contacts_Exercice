@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct UserListView: View {
-    // Crée et conserve l'instance du ViewModel.
+    // Instantiation. The default initializer UserListViewModel() in turn creates a default UserListRepository()
     @StateObject private var viewModel = UserListViewModel()
 
     /// L'état pour le sélecteur List/Grid reste dans la Vue.
@@ -55,13 +55,12 @@ struct UserListView: View {
                 NavigationLink(destination: UserDetailView(user: user)) {
                     UserRowView(user: user) // Utilise la vue UserRow externe
                 }
-                .onAppear {
+                .onAppear { ///.onAppear calls viewModel.fetchInitialUsersIfNeeded().
                     viewModel.loadMoreContentIfNeeded(currentItem: user)
                 }
             }
         }
     }
-
     // Vue extraite pour l'affichage en grille
     // Elle utilise maintenant UserGrid défini dans un autre fichier
     private var gridView: some View {

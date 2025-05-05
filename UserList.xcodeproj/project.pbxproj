@@ -10,7 +10,8 @@
 		22502B0E2DB5089300FB198B /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22502B0D2DB5089300FB198B /* UserListViewModel.swift */; };
 		225137C22DC6803100E96943 /* UserRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225137C12DC6803100E96943 /* UserRowView.swift */; };
 		225137C42DC6808900E96943 /* UserGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225137C32DC6808900E96943 /* UserGridView.swift */; };
-		22D780DA2DC67C6800AD07C9 /* Untitled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D780D92DC67C6300AD07C9 /* Untitled.swift */; };
+		225137C72DC8E1A700E96943 /* UserListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225137C62DC8E1A700E96943 /* UserListViewModelTest.swift */; };
+		225137CC2DC926E700E96943 /* MockUserListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225137CB2DC926E700E96943 /* MockUserListRepository.swift */; };
 		2F015BA82ACC938F009A098C /* UserListRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F015BA72ACC938F009A098C /* UserListRepositoryTests.swift */; };
 		2F6F65332ACD69290011B439 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F65322ACD69290011B439 /* Readme.md */; };
 		2F804AE22ACC976300A46A03 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F804AE12ACC976300A46A03 /* UserDetailView.swift */; };
@@ -38,7 +39,8 @@
 		22502B0D2DB5089300FB198B /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		225137C12DC6803100E96943 /* UserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRowView.swift; sourceTree = "<group>"; };
 		225137C32DC6808900E96943 /* UserGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGridView.swift; sourceTree = "<group>"; };
-		22D780D92DC67C6300AD07C9 /* Untitled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled.swift; sourceTree = "<group>"; };
+		225137C62DC8E1A700E96943 /* UserListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModelTest.swift; sourceTree = "<group>"; };
+		225137CB2DC926E700E96943 /* MockUserListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserListRepository.swift; sourceTree = "<group>"; };
 		2F015BA72ACC938F009A098C /* UserListRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRepositoryTests.swift; sourceTree = "<group>"; };
 		2F6F65322ACD69290011B439 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		2F804AE12ACC976300A46A03 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
@@ -109,13 +111,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		2FF9D9172ACB3C0B00F3A6C5 /* Sources */ = {
+		225137C52DC7BE1B00E96943 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2FF9D91C2ACB3D8800F3A6C5 /* HTTPMethod.swift */,
+				2FF9D91A2ACB3CE600F3A6C5 /* URLRequest.swift */,
 				2FF9D91E2ACB3DD400F3A6C5 /* UserListRepository.swift */,
-				2FF9D9192ACB3CD800F3A6C5 /* HTTPClient */,
 			);
-			path = Sources;
+			path = Network;
+			sourceTree = "<group>";
+		};
+		225137CA2DC9264300E96943 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				225137CB2DC926E700E96943 /* MockUserListRepository.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		2FF9D9182ACB3C1000F3A6C5 /* Resources */ = {
@@ -126,26 +137,17 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		2FF9D9192ACB3CD800F3A6C5 /* HTTPClient */ = {
-			isa = PBXGroup;
-			children = (
-				2FF9D91C2ACB3D8800F3A6C5 /* HTTPMethod.swift */,
-				2FF9D91A2ACB3CE600F3A6C5 /* URLRequest.swift */,
-			);
-			path = HTTPClient;
-			sourceTree = "<group>";
-		};
 		2FFB641B2AC6D255007F2F80 = {
 			isa = PBXGroup;
 			children = (
-				22D780D92DC67C6300AD07C9 /* Untitled.swift */,
-				22502B0C2DB503CC00FB198B /* ViewModel */,
-				22502B0B2DB4FF1800FB198B /* Model */,
-				22502B0A2DB4CD3500FB198B /* Views */,
-				22502B092DB4CD2300FB198B /* App */,
 				2F6F65322ACD69290011B439 /* Readme.md */,
-				2FFB64262AC6D255007F2F80 /* UserList */,
+				22502B092DB4CD2300FB198B /* App */,
+				22502B0B2DB4FF1800FB198B /* Model */,
+				22502B0C2DB503CC00FB198B /* ViewModel */,
+				22502B0A2DB4CD3500FB198B /* Views */,
+				225137C52DC7BE1B00E96943 /* Network */,
 				2FFB64372AC6D256007F2F80 /* UserListTests */,
+				2FF9D9182ACB3C1000F3A6C5 /* Resources */,
 				2FFB64252AC6D255007F2F80 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -159,19 +161,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2FFB64262AC6D255007F2F80 /* UserList */ = {
-			isa = PBXGroup;
-			children = (
-				2FF9D9172ACB3C0B00F3A6C5 /* Sources */,
-				2FF9D9182ACB3C1000F3A6C5 /* Resources */,
-			);
-			path = UserList;
-			sourceTree = "<group>";
-		};
 		2FFB64372AC6D256007F2F80 /* UserListTests */ = {
 			isa = PBXGroup;
 			children = (
+				225137C62DC8E1A700E96943 /* UserListViewModelTest.swift */,
 				2F015BA72ACC938F009A098C /* UserListRepositoryTests.swift */,
+				225137CA2DC9264300E96943 /* Mock */,
 				2FB4823B2ACC98DD0016CBA7 /* UserList.xctestplan */,
 			);
 			path = UserListTests;
@@ -284,7 +279,6 @@
 				22502B0E2DB5089300FB198B /* UserListViewModel.swift in Sources */,
 				225137C42DC6808900E96943 /* UserGridView.swift in Sources */,
 				2F804AE22ACC976300A46A03 /* UserDetailView.swift in Sources */,
-				22D780DA2DC67C6800AD07C9 /* Untitled.swift in Sources */,
 				2FF9D91F2ACB3DD400F3A6C5 /* UserListRepository.swift in Sources */,
 				225137C22DC6803100E96943 /* UserRowView.swift in Sources */,
 				2FFB64282AC6D255007F2F80 /* UserListApp.swift in Sources */,
@@ -297,6 +291,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F015BA82ACC938F009A098C /* UserListRepositoryTests.swift in Sources */,
+				225137CC2DC926E700E96943 /* MockUserListRepository.swift in Sources */,
+				225137C72DC8E1A700E96943 /* UserListViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
