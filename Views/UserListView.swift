@@ -11,6 +11,7 @@ struct UserListView: View {
         NavigationView {
             Group {
                 // Sélectionne la vue Liste ou Grille directement.
+                    //PAS DE LOGIQUE
                 if !isGridView {
                     listView
                 } else {
