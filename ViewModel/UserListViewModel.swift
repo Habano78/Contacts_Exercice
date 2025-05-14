@@ -4,6 +4,7 @@
 //  Created by Perez William on 20/04/2025.
 //
 import Foundation
+import Combine
 
 final class UserListViewModel: ObservableObject {
         
