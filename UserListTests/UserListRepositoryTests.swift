@@ -45,7 +45,6 @@ final class UserListRepositoryTests: XCTestCase {
                 XCTAssertEqual(users[0].name.last, "Doe")
                 XCTAssertEqual(users[0].dob.age, 31)
                 XCTAssertEqual(users[0].picture.large, "https://example.com/large.jpg")
-                
                 XCTAssertEqual(users[1].name.first, "Jane")
                 XCTAssertEqual(users[1].name.last, "Smith")
                 XCTAssertEqual(users[1].dob.age, 26)

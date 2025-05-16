@@ -36,7 +36,6 @@ final class UserListViewModelTests: XCTestCase {
         }
         
         // MARK: - Tests
-        
         func testFetchInitialUsersIfNeededLoadsUsers() {
                 // Given
                 XCTAssertTrue(viewModel.users.isEmpty)
@@ -50,7 +49,7 @@ final class UserListViewModelTests: XCTestCase {
                                 XCTAssertEqual(users.count, 2)
                                 expectation.fulfill()
                         }
-                        .store(in: &cancellables)
+                        .store(in: &cancellables)  // Stocke l'abonnement pour le conserver pendant le test
                 
                 // When
                 viewModel.fetchInitialUsersIfNeeded()
@@ -70,7 +69,7 @@ final class UserListViewModelTests: XCTestCase {
                                 XCTAssertEqual(users.count, 2)
                                 initialExpectation.fulfill()
                         }
-                        .store(in: &cancellables)
+                        .store(in: &cancellables)  // Stocke l'abonnement pour le conserver pendant le test
                 viewModel.fetchInitialUsersIfNeeded()
                 wait(for: [initialExpectation], timeout: 1.0)
                 
@@ -85,7 +84,7 @@ final class UserListViewModelTests: XCTestCase {
                                 XCTAssertEqual(users.count, 2)
                                 reloadExpectation.fulfill()
                         }
-                        .store(in: &cancellables)
+                        .store(in: &cancellables)  // Stocke l'abonnement pour le conserver pendant le test
                 
                 viewModel.reloadUsers()
                 wait(for: [reloadExpectation], timeout: 1.0)
@@ -102,7 +101,7 @@ final class UserListViewModelTests: XCTestCase {
                                 XCTAssertEqual(users.count, 2)
                                 initialExpectation.fulfill()
                         }
-                        .store(in: &cancellables)
+                        .store(in: &cancellables)  // Stocke l'abonnement pour le conserver pendant le test
                 viewModel.fetchInitialUsersIfNeeded()
                 wait(for: [initialExpectation], timeout: 1.0)
                 
@@ -115,7 +114,7 @@ final class UserListViewModelTests: XCTestCase {
                                 XCTAssertEqual(users.count, 4)
                                 moreExpectation.fulfill()
                         }
-                        .store(in: &cancellables)
+                        .store(in: &cancellables)  // Stocke l'abonnement pour le conserver pendant le test
                 
                 viewModel.loadMoreContentIfNeeded(currentItem: viewModel.users.last)
                 wait(for: [moreExpectation], timeout: 1.0)
@@ -131,7 +130,7 @@ final class UserListViewModelTests: XCTestCase {
                                 XCTAssertEqual(users.count, 2)
                                 initialExpectation.fulfill()
                         }
-                        .store(in: &cancellables)
+                        .store(in: &cancellables)  // Stocke l'abonnement pour le conserver pendant le test
                 viewModel.fetchInitialUsersIfNeeded()
                 wait(for: [initialExpectation], timeout: 1.0)
                 
@@ -143,9 +142,47 @@ final class UserListViewModelTests: XCTestCase {
                         .sink { _ in
                                 noLoadExpectation.fulfill()
                         }
-                        .store(in: &cancellables)
+                        .store(in: &cancellables)  // Stocke l'abonnement pour le conserver pendant le test
                 
                 viewModel.loadMoreContentIfNeeded(currentItem: viewModel.users.first)
                 wait(for: [noLoadExpectation], timeout: 1.0)
         }
+        
+        // MARK: - Tests pour displayMode
+        
+        func testDisplayModeDefaultIsList() {
+                // À l'initialisation, displayMode doit être .list
+                XCTAssertEqual(viewModel.displayMode, .list)
+        }
+        
+        func testDisplayModePublishesOnChange() {
+                // On crée une expectation pour attendre la publication d'un changement de displayMode
+                let expectation = expectation(description: "DisplayMode changed")
+                // On initialise un tableau pour stocker les valeurs reçues de displayMode
+                var received: [UserListViewModel.DisplayMode] = []
+                
+                viewModel.$displayMode
+                        .sink { mode in
+                                received.append(mode)
+                                // Dès qu'on reçoit .grid, on peut valider
+                                if received.contains(.grid) {
+                                        expectation.fulfill()
+                                }
+                        }
+                        .store(in: &cancellables)  // Stocke l'abonnement pour le conserver pendant le test
+                
+                // Quand on change la valeur
+                viewModel.displayMode = .grid
+                
+                wait(for: [expectation], timeout: 0.5)
+                // La séquence doit contenir d'abord .list (initial), puis .grid
+                XCTAssertEqual(received, [.list, .grid])
+        }
+        
+        func testDisplayModeIDGetter() {
+                // Vérifie que la propriété id (Identifiable) renvoie bien rawValue
+                for mode in UserListViewModel.DisplayMode.allCases {
+                    XCTAssertEqual(mode.id, mode.rawValue)
+                }
+            }
 }
