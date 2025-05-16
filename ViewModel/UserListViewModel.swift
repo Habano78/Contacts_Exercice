@@ -3,11 +3,11 @@
 //
 //  Created by Perez William on 20/04/2025.
 //
+
 import Foundation
 import Combine
 
 final class UserListViewModel: ObservableObject {
-        
         private let repository: UserListRepository
         
         init(repository: UserListRepository = .init()) {
@@ -18,8 +18,14 @@ final class UserListViewModel: ObservableObject {
         @Published var users: [User] = []
         @Published var isLoading: Bool = false
         
-        // --- Inputs ---
+        // Gestion du mode d’affichage List/Grid
+        enum DisplayMode: Int, CaseIterable, Identifiable {
+                case list, grid
+                var id: Int { rawValue }
+        }
+        @Published var displayMode: DisplayMode = .list
         
+        // --- Inputs ---
         /// Charge la première série d'utilisateurs si la liste est vide.
         /// À appeler depuis .onAppear de la vue.
         @MainActor
@@ -46,7 +52,6 @@ final class UserListViewModel: ObservableObject {
         }
         
         // --- Logique privée ---
-        
         /// Fonction principale pour récupérer (plus) d'utilisateurs.
         @MainActor
         private func fetchMoreUsers() {

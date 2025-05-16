@@ -28,4 +28,3 @@ struct UserListResponse: Codable {
                 }
         }
 }
-
